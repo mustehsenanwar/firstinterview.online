@@ -30,9 +30,18 @@ firstinterview.online/
 
 ## Adding Images
 
-To add your own professional images for the mosaic:
+There are two ways to handle profile images:
 
-1. Add jpg images to the `images/` directory with the following names:
+### Option 1: Use Placeholders (Default)
+
+The current implementation uses placeholder images automatically, so no additional setup is required.
+
+### Option 2: Add Custom Images
+
+To use your own professional images for the mosaic:
+
+1. Create image files in the `images/` directory with these names:
+
    - engineer.jpg
    - marketer.jpg
    - hr.jpg
@@ -42,4 +51,30 @@ To add your own professional images for the mosaic:
    - teacher.jpg
    - customer-service.jpg
 
-If you don't add these images, the system will automatically use placeholders.
+2. Modify `js/main.js` to use these images:
+
+   ```js
+   const professionals = [
+     { role: "Software Engineer", img: "images/engineer.jpg" },
+     { role: "Marketing Specialist", img: "images/marketer.jpg" },
+     { role: "HR Manager", img: "images/hr.jpg" },
+     { role: "Product Designer", img: "images/designer.jpg" },
+     { role: "Financial Analyst", img: "images/finance.jpg" },
+     { role: "Healthcare Professional", img: "images/healthcare.jpg" },
+     { role: "Teacher", img: "images/teacher.jpg" },
+     { role: "Customer Service", img: "images/customer-service.jpg" },
+   ];
+   ```
+
+3. Also add back the image fallback code:
+   ```js
+   // Create image with placeholder if needed
+   const img = document.createElement("img");
+   img.src = person.img;
+   img.alt = person.role;
+   img.onerror = function () {
+     this.src = `https://via.placeholder.com/300x300/4a6cf7/ffffff?text=${encodeURIComponent(
+       person.role
+     )}`;
+   };
+   ```
