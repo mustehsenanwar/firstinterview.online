@@ -250,9 +250,10 @@ h1 {
 
 .cta-badges {
     display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-    margin-top: 30px;
+    flex-wrap: nowrap;
+    gap: 16px;
+    margin-top: 20px;
+    justify-content: flex-start;
 }
 
 .cta-badge {
@@ -262,12 +263,35 @@ h1 {
     background-color: var(--primary-light);
     padding: 8px 16px;
     border-radius: var(--badge-radius);
-    font-weight: 500;
+    font-weight: 600;
     font-size: 0.9rem;
+    line-height: 1.2;
+    width: auto;
+    max-width: 220px;
+    text-align: left;
+    justify-content: flex-start;
+    transition: var(--transition);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.cta-badge:hover {
+    background-color: var(--primary-color);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(67, 97, 238, 0.2);
+}
+
+.cta-badge:hover i {
+    color: white;
 }
 
 .cta-badge i {
     color: var(--primary-color);
+    font-size: 1rem;
+    flex-shrink: 0;
+    transition: var(--transition);
 }
 
 /* Waitlist Form Container */
@@ -722,13 +746,21 @@ footer {
     }
     
     .cta-badges {
-        flex-direction: column;
+        flex-direction: row;
+        flex-wrap: nowrap;
         align-items: center;
+        gap: 10px;
+        justify-content: flex-start;
     }
     
     .cta-badge {
-        width: 100%;
-        justify-content: center;
+        width: auto;
+        padding: 8px 10px;
+        font-size: 0.8rem;
+        gap: 5px;
+        min-width: 0;
+        text-align: left;
+        justify-content: flex-start;
     }
     
     .logo img {
