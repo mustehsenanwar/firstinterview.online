@@ -558,12 +558,15 @@ input:focus {
     text-align: center;
     margin: 60px 0;
     animation: fadeInUp 1s ease-out 0.4s backwards;
+    padding: 40px 20px;
+    background-color: #fafbff;
+    border-radius: var(--border-radius);
 }
 
 .cta-section h2 {
-    font-size: 2.5rem;
-    font-weight: 700;
-    margin-bottom: 40px;
+    font-size: 2.25rem;
+    font-weight: 800;
+    margin-bottom: 30px;
     color: var(--secondary-color);
     position: relative;
     display: inline-block;
@@ -571,11 +574,11 @@ input:focus {
 
 .cta-section h2::after {
     content: '';
-    width: 60px;
+    width: 50px;
     height: 4px;
     background: var(--primary-gradient);
     position: absolute;
-    bottom: -15px;
+    bottom: -12px;
     left: 50%;
     transform: translateX(-50%);
     border-radius: 2px;
@@ -584,14 +587,14 @@ input:focus {
 .benefits {
     display: flex;
     justify-content: center;
-    gap: 30px;
-    margin: 40px 0;
+    gap: 20px;
+    margin: 30px 0;
     flex-wrap: wrap;
 }
 
 .benefit-item {
     background: white;
-    padding: 30px;
+    padding: 25px 20px;
     border-radius: var(--border-radius);
     box-shadow: var(--card-shadow);
     flex: 1;
@@ -601,6 +604,7 @@ input:focus {
     border: 1px solid rgba(237, 242, 247, 0.8);
     position: relative;
     overflow: hidden;
+    text-align: left;
 }
 
 .benefit-item::before {
@@ -619,22 +623,86 @@ input:focus {
 }
 
 .benefit-icon {
-    font-size: 32px;
+    font-size: 24px;
     color: var(--primary-color);
-    margin-bottom: 20px;
+    margin-bottom: 12px;
     background: var(--primary-light);
-    width: 70px;
-    height: 70px;
+    width: 50px;
+    height: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 18px;
+    border-radius: 12px;
+    position: relative;
+    z-index: 2;
 }
 
 .benefit-title {
+    font-weight: 700;
+    font-size: 1.2rem;
+    margin-bottom: 4px;
+    color: var(--secondary-color);
+}
+
+.benefit-subtitle {
+    color: var(--accent-color);
+    font-size: 0.9rem;
+    margin-bottom: 12px;
+    font-weight: 500;
+    font-style: italic;
+}
+
+.benefit-features {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.benefit-features li {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    color: var(--secondary-color);
+}
+
+.benefit-features li i {
+    color: var(--primary-color);
+    margin-right: 6px;
+    flex-shrink: 0;
+    margin-top: 3px;
+    font-size: 0.85rem;
+}
+
+.benefits-cta {
+    margin-top: 20px;
+}
+
+.benefits-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--primary-gradient);
+    color: white;
+    text-decoration: none;
+    padding: 14px 25px;
+    border-radius: 8px;
     font-weight: 600;
-    font-size: 1.25rem;
-    margin-bottom: 15px;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(67, 97, 238, 0.25);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.benefits-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(67, 97, 238, 0.35);
+}
+
+.benefits-button i {
+    font-size: 1rem;
 }
 
 /* Footer */

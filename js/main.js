@@ -188,7 +188,7 @@ function simulateVideoPreview(element, role, gender) {
 
 // Handle waitlist form submission
 function setupWaitlistForm() {
-    const form = document.getElementById('waitlistForm');
+    const form = document.getElementById('waitlistFormElement');
     const confirmation = document.getElementById('confirmation');
     
     // Add focus effects to input fields
