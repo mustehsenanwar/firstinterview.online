@@ -210,6 +210,7 @@ function setupWaitlistForm() {
         
         const nameInput = document.getElementById('name');
         const emailInput = document.getElementById('email');
+        const websiteInput = document.getElementById('website');
         
         if (nameInput.value && emailInput.value) {
             // Show loading state on button
@@ -218,13 +219,29 @@ function setupWaitlistForm() {
             submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
             submitButton.disabled = true;
             
-            // Simulate API call with timeout
-            setTimeout(() => {
-                // In a real application, you would send this data to your server
-                console.log('Form submitted:', {
-                    name: nameInput.value,
-                    email: emailInput.value
-                });
+            // Prepare the data for API submission
+            const formData = {
+                name: nameInput.value,
+                email: emailInput.value,
+                website: websiteInput.value
+            };
+            
+            // Submit to API
+            fetch('https://test.dubaicv.ae/api/collect-contact/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formData)
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log('Success:', data);
                 
                 // Show confirmation message with animation
                 form.style.opacity = 0;
@@ -235,12 +252,25 @@ function setupWaitlistForm() {
                         confirmation.style.opacity = 1;
                     }, 10);
                 }, 300);
-                
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                // Still show success to user but log the error
+                form.style.opacity = 0;
+                setTimeout(() => {
+                    form.style.display = 'none';
+                    confirmation.classList.remove('hidden');
+                    setTimeout(() => {
+                        confirmation.style.opacity = 1;
+                    }, 10);
+                }, 300);
+            })
+            .finally(() => {
                 // Reset form
                 form.reset();
                 submitButton.innerHTML = originalText;
                 submitButton.disabled = false;
-            }, 1500);
+            });
         }
     });
 }
