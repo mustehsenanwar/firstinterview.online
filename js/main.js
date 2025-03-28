@@ -243,25 +243,111 @@ function setupWaitlistForm() {
             .then(data => {
                 console.log('Success:', data);
                 
-                // Show confirmation message with animation
-                form.style.opacity = 0;
+                // Hide the entire waitlist-form-container
+                const formContainer = document.querySelector('.waitlist-form-container');
+                formContainer.style.opacity = 0;
+                
                 setTimeout(() => {
-                    form.style.display = 'none';
-                    confirmation.classList.remove('hidden');
+                    // Create payment offer container with same styling as form
+                    const paymentOffer = document.createElement('div');
+                    paymentOffer.className = 'waitlist-form-container';
+                    paymentOffer.innerHTML = `
+                        <div class="video-badge">
+                            <i class="fas fa-fire"></i>
+                            <span>Special Offer</span>
+                        </div>
+                        <div class="waitlist-form payment-container">
+                            <div class="pricing-header">
+                                <h2>Early Access Offer</h2>
+                                <p class="limited-spots">Only 7 spots remaining!</p>
+                            </div>
+                            
+                            <div class="price-comparison">
+                                <div class="price-item regular">
+                                    <div class="price-label">Regular Price</div>
+                                    <div class="price-amount">$39<span>/month</span></div>
+                                </div>
+                                <div class="price-item special">
+                                    <div class="discount-badge">74% OFF</div>
+                                    <div class="price-label">Waitlist Price</div>
+                                    <div class="price-amount">$10<span>/month</span></div>
+                                </div>
+                            </div>
+                            
+                            <div class="features-list">
+                                <div class="feature-item"><i class="fas fa-check"></i> All features</div>
+                                <div class="feature-item"><i class="fas fa-check"></i> Priority support</div>
+                                <div class="feature-item"><i class="fas fa-check"></i> Lifetime discount</div>
+                                <div class="feature-item"><i class="fas fa-check"></i> Cancel anytime</div>
+                            </div>
+                            
+                            <a href="https://buy.stripe.com/4gwbMd1094o4d3y7sw" class="payment-button">
+                                <i class="fas fa-lock"></i> Secure Early Access
+                            </a>
+                        </div>
+                    `;
+                    
+                    // Replace the form container with the offer
+                    formContainer.parentNode.replaceChild(paymentOffer, formContainer);
+                    
+                    // Animate in the new container
                     setTimeout(() => {
-                        confirmation.style.opacity = 1;
+                        paymentOffer.style.opacity = 1;
                     }, 10);
                 }, 300);
             })
             .catch(error => {
                 console.error('Error:', error);
-                // Still show success to user but log the error
-                form.style.opacity = 0;
+                // Still show offer on error
+                const formContainer = document.querySelector('.waitlist-form-container');
+                formContainer.style.opacity = 0;
+                
                 setTimeout(() => {
-                    form.style.display = 'none';
-                    confirmation.classList.remove('hidden');
+                    // Create payment offer container with same styling as form
+                    const paymentOffer = document.createElement('div');
+                    paymentOffer.className = 'waitlist-form-container';
+                    paymentOffer.innerHTML = `
+                        <div class="video-badge">
+                            <i class="fas fa-fire"></i>
+                            <span>Special Offer</span>
+                        </div>
+                        <div class="waitlist-form payment-container">
+                            <div class="pricing-header">
+                                <h2>Early Access Offer</h2>
+                                <p class="limited-spots">Only 7 spots remaining!</p>
+                            </div>
+                            
+                            <div class="price-comparison">
+                                <div class="price-item regular">
+                                    <div class="price-label">Regular Price</div>
+                                    <div class="price-amount">$39<span>/month</span></div>
+                                </div>
+                                <div class="price-item special">
+                                    <div class="discount-badge">74% OFF</div>
+                                    <div class="price-label">Waitlist Price</div>
+                                    <div class="price-amount">$10<span>/month</span></div>
+                                </div>
+                            </div>
+                            
+                            <div class="features-list">
+                                <div class="feature-item"><i class="fas fa-check"></i> All features</div>
+                                <div class="feature-item"><i class="fas fa-check"></i> Priority support</div>
+                                <div class="feature-item"><i class="fas fa-check"></i> Lifetime discount</div>
+                                <div class="feature-item"><i class="fas fa-check"></i> Cancel anytime</div>
+                            </div>
+                            
+                            <a href="https://buy.stripe.com/4gwbMd1094o4d3y7sw" class="payment-button">
+                                <i class="fas fa-lock"></i> Secure Early Access
+                            </a>
+                        </div>
+                    `;
+                    
+                    // Replace the form container with the offer
+                    formContainer.parentNode.replaceChild(paymentOffer, formContainer);
+                    
+                    // Animate in the new container
                     setTimeout(() => {
-                        confirmation.style.opacity = 1;
+                        paymentOffer.style.opacity = 1;
                     }, 10);
                 }, 300);
             })
