@@ -260,6 +260,7 @@ function setupWaitlistForm() {
                             <div class="pricing-header">
                                 <h2>Early Access Offer</h2>
                                 <p class="limited-spots">Only 7 spots remaining!</p>
+                                <p class="launch-date">Expected launch date: next week</p>
                             </div>
                             
                             <div class="price-comparison">
@@ -275,9 +276,8 @@ function setupWaitlistForm() {
                             </div>
                             
                             <div class="features-list">
-                                <div class="feature-item"><i class="fas fa-check"></i> All features</div>
-                                <div class="feature-item"><i class="fas fa-check"></i> Priority support</div>
-                                <div class="feature-item"><i class="fas fa-check"></i> Lifetime discount</div>
+                                <div class="feature-item"><i class="fas fa-check"></i> Early access to all features</div>
+                                <div class="feature-item"><i class="fas fa-check"></i> Your monthly rate is locked for life</div>
                                 <div class="feature-item"><i class="fas fa-check"></i> Cancel anytime</div>
                             </div>
                             
@@ -315,6 +315,7 @@ function setupWaitlistForm() {
                             <div class="pricing-header">
                                 <h2>Early Access Offer</h2>
                                 <p class="limited-spots">Only 7 spots remaining!</p>
+                                <p class="launch-date">Expected launch date: next week</p>
                             </div>
                             
                             <div class="price-comparison">
@@ -330,9 +331,8 @@ function setupWaitlistForm() {
                             </div>
                             
                             <div class="features-list">
-                                <div class="feature-item"><i class="fas fa-check"></i> All features</div>
-                                <div class="feature-item"><i class="fas fa-check"></i> Priority support</div>
-                                <div class="feature-item"><i class="fas fa-check"></i> Lifetime discount</div>
+                                <div class="feature-item"><i class="fas fa-check"></i> Early access to all features</div>
+                                <div class="feature-item"><i class="fas fa-check"></i> Your monthly rate is locked for life</div>
                                 <div class="feature-item"><i class="fas fa-check"></i> Cancel anytime</div>
                             </div>
                             

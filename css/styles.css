@@ -1160,4 +1160,13 @@ footer {
 .feature-item i {
     color: #10b981;
     font-size: 1rem;
+}
+
+.launch-date {
+    color: var(--secondary-color);
+    font-size: 0.85rem;
+    font-weight: 500;
+    margin-top: 8px;
+    border-top: 1px dashed #e2e8f0;
+    padding-top: 8px;
 } 
