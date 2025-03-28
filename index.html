@@ -1,7 +1,56 @@
-<html>
-    <head>
-        <title>My Website</title>
-    </head>
-    <body>
-        <h1>Welcome to my website</h1>
-    </body>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FirstInterview.online - Show the real you</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">FirstInterview.online</div>
+        </header>
+
+        <main>
+            <div class="hero">
+                <div class="hero-content">
+                    <h1>Show the real you. Land your next job with a video resume.</h1>
+                    <p>Upload your video resume and stand out from the crowd. Let employers see the person behind the
+                        resume.</p>
+                </div>
+
+                <div class="video-mosaic" id="videoMosaic">
+                    <!-- Video mosaic will be populated with JS -->
+                </div>
+            </div>
+
+            <div class="waitlist-form">
+                <h2>Get Early Access</h2>
+                <form id="waitlistForm">
+                    <div class="form-group">
+                        <input type="text" id="name" name="name" placeholder="Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" name="email" placeholder="Email" required>
+                    </div>
+                    <button type="submit" class="cta-button">Join the Waitlist</button>
+                </form>
+                <div id="confirmation" class="confirmation hidden">
+                    Thanks! You'll be among the first to access FirstInterview.online.
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2024 FirstInterview.online. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>
