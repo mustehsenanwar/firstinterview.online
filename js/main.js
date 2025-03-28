@@ -20,16 +20,19 @@ document.addEventListener('DOMContentLoaded', function() {
 function createVideoMosaic() {
     const mosaicContainer = document.getElementById('videoMosaic');
     
-    // Professional roles for the mosaic with images
+    // Professional roles for the mosaic with images - mixed arrangement of men and women
+    // Using exact filenames as they exist in the images folder
     const professionals = [
-        { role: 'Software Engineer', img: 'images/professional_image1.jpg' },
-        { role: 'Marketing Specialist', img: 'images/professional_image2.jpg' },
-        { role: 'HR Manager', img: 'images/professional_image3.jpg' },
-        { role: 'Product Designer', img: 'images/professional_image4.jpg' },
-        { role: 'Financial Analyst', img: 'images/professional_image5.jpg' },
-        { role: 'Healthcare Professional', img: 'images/professional_image6.jpg' },
-        { role: 'Teacher', img: 'images/professional_image7.jpg' },
-        { role: 'Customer Service', img: 'images/professional_image8.jpg' }
+        { role: 'UX Designer', img: 'images/man - professional_image4.jpg', gender: 'man' },
+        { role: 'HR Director', img: 'images/woman - professional_image8.jpg', gender: 'woman' },
+        { role: 'Financial Advisor', img: 'images/man - professional_image5.jpg', gender: 'man' },
+        { role: 'Project Manager', img: 'images/man - professional_image7.jpg', gender: 'man' },
+        { role: 'Customer Support', img: 'images/woman - professional_image9.jpeg', gender: 'woman' },
+        { role: 'Sales Executive', img: 'images/man - professional_image6.jpg', gender: 'man' },
+        { role: 'Product Manager', img: 'images/woman- professional_image9.jpg', gender: 'woman' },
+        { role: 'IT Specialist', img: 'images/man - professional_image12.jpg', gender: 'man' },
+        { role: 'Business Analyst', img: 'images/woman- professional_image11.jpg', gender: 'woman' },
+        { role: 'Engineering Director', img: 'images/man - professional_image13.jpg', gender: 'man' }
     ];
     
     // Create mosaic items with staggered animation
@@ -45,6 +48,7 @@ function createVideoMosaic() {
             img.src = person.img;
             img.alt = person.role;
             img.onerror = function() {
+                console.log(`Image not found: ${person.img}, falling back to placeholder`);
                 this.src = `https://via.placeholder.com/300x300/4361ee/ffffff?text=${encodeURIComponent(person.role)}`;
             };
         } else {
@@ -57,14 +61,22 @@ function createVideoMosaic() {
         roleLabel.className = 'role-label';
         roleLabel.textContent = person.role;
         
-        // Create play icon overlay
+        // Create play icon overlay with color based on gender
         const playIcon = document.createElement('div');
         playIcon.className = 'play-icon';
+        
+        // Set blue color for men, pink for women
+        if (person.gender === 'man') {
+            playIcon.style.backgroundColor = 'rgba(67, 97, 238, 0.8)'; // Blue color
+        } else {
+            playIcon.style.backgroundColor = 'rgba(247, 37, 133, 0.8)'; // Pink color
+        }
+        
         playIcon.innerHTML = '<i class="fas fa-play"></i>';
         
         // Add click event to simulate video preview
         item.addEventListener('click', function() {
-            simulateVideoPreview(this, person.role);
+            simulateVideoPreview(this, person.role, person.gender);
         });
         
         // Add hover animation
@@ -127,7 +139,7 @@ function createDynamicBackground() {
 }
 
 // Simulate a video preview when clicked
-function simulateVideoPreview(element, role) {
+function simulateVideoPreview(element, role, gender) {
     const playIcon = element.querySelector('.play-icon');
     
     // Change the icon to a spinner temporarily
@@ -140,6 +152,14 @@ function simulateVideoPreview(element, role) {
         // Add a notification
         const notification = document.createElement('div');
         notification.className = 'video-notification';
+        
+        // Set notification color based on gender
+        if (gender === 'man') {
+            notification.style.backgroundColor = 'var(--primary-color)'; // Blue color
+        } else {
+            notification.style.backgroundColor = 'var(--accent-color)'; // Pink color
+        }
+        
         notification.innerHTML = `
             <i class="fas fa-video"></i>
             <span>Video preview from ${role}</span>
@@ -371,4 +391,4 @@ style.textContent = `
         transform: translateY(0);
     }
 `;
-document.head.appendChild(style); 
+document.head.appendChild(style);

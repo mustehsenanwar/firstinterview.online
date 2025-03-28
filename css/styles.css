@@ -145,22 +145,14 @@ header {
 }
 
 .logo {
-    font-size: 24px;
-    font-weight: 800;
-    color: var(--primary-color);
-    letter-spacing: -0.5px;
     position: relative;
+    display: inline-block;
 }
 
-.logo::after {
-    content: '';
-    position: absolute;
-    bottom: -4px;
-    left: 0;
-    width: 40px;
-    height: 3px;
-    background: var(--primary-gradient);
-    border-radius: 3px;
+.logo img {
+    height: 40px;
+    width: auto;
+    display: block;
 }
 
 /* Main Content */
@@ -618,6 +610,15 @@ footer {
         max-width: 500px;
         margin: 40px auto 0;
     }
+    
+    .logo {
+        text-align: center;
+        display: block;
+    }
+    
+    .logo img {
+        margin: 0 auto;
+    }
 }
 
 @media (max-width: 768px) {
@@ -651,6 +652,10 @@ footer {
     .cta-section h2 {
         font-size: 2rem;
     }
+    
+    .logo img {
+        height: 32px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -666,6 +671,10 @@ footer {
     .cta-badge {
         width: 100%;
         justify-content: center;
+    }
+    
+    .logo img {
+        height: 28px;
     }
 }
 
